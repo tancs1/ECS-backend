@@ -1,8 +1,8 @@
-
-
-const express = require("express");
-const mongoose = require("mongoose");
-const bodyParser = require("body-parser");
+const mongoose = require('mongoose');
+const express = require('express');
+const bodyParser = require('body-parser');
+const cors = require('cors');
+require('dotenv').config();;
 const {
   Signup,
   BookingRecord,
@@ -19,20 +19,25 @@ const {
   CargoTracking,
   cancelOrder,
 } = require("./schema");
-const cors = require("cors");
+
+
+// Initialize express app
 const app = express();
-const PORT = 3000;
 
-mongoose
-  .connect("mongodb://localhost:27017/e-cargo-service", {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
-  .then(() => console.log("MongoDB Connected"))
-  .catch((err) => console.log(err));
+// Use environment variables
+// Use environment variables
+const PORT = process.env.PORT || 3000;
+const MONGODB_URI = process.env.MONGODB_URI;
 
+// Middleware
 app.use(bodyParser.json());
 app.use(cors());
+
+// Connect to MongoDB
+mongoose.connect(MONGODB_URI)
+  .then(() => console.log('MongoDB connected'))
+  .catch(err => console.error('MongoDB connection error:', err));
+
 
 // Create a new signup
 app.post("/signup", async (req, res) => {
