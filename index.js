@@ -31,12 +31,13 @@ const MONGODB_URI = process.env.MONGODB_URI;
 
 // Middleware
 app.use(bodyParser.json());
-app.use(cors({
-  origin: 'https://e-cargo-services.vercel.app', // Allow requests from your local Angular app
-  methods: 'GET,POST,PUT,DELETE',
-  credentials: true
-}));
+const corsOptions = {
+  origin: 'https://e-cargo-services.vercel.app', // Allow your frontend
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  credentials: true, // Allow cookies or authentication if needed
+};
 
+app.use(cors(corsOptions));
 // Connect to MongoDB
 mongoose.connect(MONGODB_URI)
   .then(() => console.log('MongoDB connected'))
