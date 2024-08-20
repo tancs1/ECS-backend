@@ -32,7 +32,7 @@ const MONGODB_URI = process.env.MONGODB_URI;
 // Middleware
 app.use(bodyParser.json());
 app.use(cors({
-  origin: 'http://localhost:4200', // Allow requests from your local Angular app
+  origin: 'https://e-cargo-services.vercel.app', // Allow requests from your local Angular app
   methods: 'GET,POST,PUT,DELETE',
   credentials: true
 }));
