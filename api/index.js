@@ -18,7 +18,7 @@ const {
   DriverRecords,
   CargoTracking,
   cancelOrder,
-} = require("./schema");
+} = require("../schema");
 
 
 // Initialize express app
@@ -26,7 +26,7 @@ const app = express();
 
 // Use environment variables
 // Use environment variables
-const PORT = process.env.PORT || 3000;
+const port = process.env.PORT || 3000; 
 const MONGODB_URI = process.env.MONGODB_URI;
 
 // Middleware
@@ -614,6 +614,6 @@ app.get("/orderCancelReason", async (req, res) => {
   }
 });
 
-app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
+app.listen(port, () => {
+  console.log(`Server is running on http://localhost:${port}`);
 });
