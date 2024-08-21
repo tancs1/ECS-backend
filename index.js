@@ -18,7 +18,7 @@ const {
   DriverRecords,
   CargoTracking,
   cancelOrder,
-} = require("../schema");
+} = require("./schema");
 
 
 // Initialize express app
