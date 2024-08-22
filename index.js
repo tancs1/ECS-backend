@@ -26,7 +26,7 @@ const app = express();
 
 // Use environment variables
 // Use environment variables
-const port = process.env.PORT || 3000; 
+const PORT = process.env.PORT || 3000;
 const MONGODB_URI = process.env.MONGODB_URI;
 
 // Middleware
@@ -621,6 +621,7 @@ app.get("/orderCancelReason", async (req, res) => {
   }
 });
 
-app.listen(port, () => {
-  console.log(`Server is running on http://localhost:${port}`);
-});
+// app.listen(PORT, () => {
+//   console.log(`Server is running on port ${PORT}`);
+// });
+module.exports = app;
