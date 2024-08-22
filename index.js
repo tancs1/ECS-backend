@@ -42,7 +42,14 @@ app.use(cors(corsOptions));
 mongoose.connect(MONGODB_URI)
   .then(() => console.log('MongoDB connected'))
   .catch(err => console.error('MongoDB connection error:', err));
-
+  app.get("/", async (req, res) => {
+    try {
+      res.json("express");
+     
+    } catch (err) {
+      res.status(500).json({ message: err.message });
+    }
+  });
 
 // Create a new signup
 app.post("/signup", async (req, res) => {
