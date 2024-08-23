@@ -32,7 +32,7 @@ const MONGODB_URI = process.env.MONGODB_URI;
 // Middleware
 app.use(bodyParser.json());
 const corsOptions = {
-  origin: 'https://e-cargo-services.vercel.app/', // Allow your frontend
+  origin: 'https://e-cargo-services.vercel.app', // Allow your frontend
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   credentials: true, // Allow cookies or authentication if needed
 };
